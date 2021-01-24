@@ -39,7 +39,11 @@ export class SearcherComponent implements OnInit {
   searchContext = searchContext
 
   viewDetail(id: string) {
-    this._router.navigate(["/hero", id])
+    if (this.searchContext()[0] == 'hero') {
+      this._router.navigate(["/hero", id])
+    } else {
+      this._router.navigate(["/villains"])
+    } 
   }
 
 }

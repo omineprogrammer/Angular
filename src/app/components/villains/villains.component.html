@@ -8,9 +8,9 @@
 
       <div *ngFor="let villain of villains; let isFirst = first"  [class.active]="isFirst" class="carousel-item">
         <img class="d-block w-100" src="{{ villain.img }}">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption d-none d-sm-block">
             <div class="row">
-              <h4 class="">{{ villain.nombre }}</h4>
+              <h2 class="">{{ villain.nombre }}</h2>
               <img class="rounded" src="{{ getLogoPath(villain) }}" style="max-width: 36px; max-height: 36px;">
             </div>
             <p class="lead text-justify">{{ villain.bio }}</p>

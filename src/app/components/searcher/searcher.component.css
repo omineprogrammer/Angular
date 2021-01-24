@@ -1,0 +1,15 @@
+.card { 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}   
+
+.card::before { 
+    background-color: rgba(0, 0, 0, 0.6);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    border-radius: 4px;
+} 

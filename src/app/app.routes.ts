@@ -12,8 +12,8 @@ const APP_ROUTES: Routes = [
     { path: 'hero', component: HeroDetailComponent },
     { path: 'hero/:id', component: HeroDetailComponent },
     { path: 'villains', component: VillainsComponent },
-    { path: 'search/hero/:expression', component: SearcherComponent },
-    { path: 'search/villain/:expression', component: SearcherComponent },
+    { path: 'hero/search/:expression', component: SearcherComponent },
+    { path: 'villain/search/:expression', component: SearcherComponent },
     { path: 'about', component: AboutComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ]

@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
 
   searchItem( expression:string, typeItem: string ){
     this._router.navigate( 
-      [`/search/${typeItem}`, expression] )
+      [`/${typeItem}/search`, expression] )
   }
 
   searchContext = searchContext
