@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HeroService, Heroe } from 'src/app/services/hero.service';
+import { HeroDBService } from 'src/app/services/hero.service';
+// import { HeroService, Heroe } from 'src/app/services/hero.service';
 import { VillainService } from 'src/app/services/villain.service';
 import { getBSClassFromCasa, searchContext } from 'src/app/tools/tools';
 
@@ -14,7 +15,7 @@ export class SearcherComponent implements OnInit {
 
   constructor(
     private activedRoute: ActivatedRoute,
-    private _heroesService: HeroService,
+    private _heroesService: HeroDBService,
     private _villainsService: VillainService,
     private _router: Router
   ) { }

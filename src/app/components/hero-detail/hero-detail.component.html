@@ -1,20 +1,147 @@
-<div class="card m-5">
-    <div class="row no-gutters">
-      <div class="col-xs-12 col-sm-5 col-md-6 col-lg-4 col-xl-4">
-        <img src="{{hero.img}}" class="card-img-top mx-auto"  style="max-width:320px">
-      </div>
-      <div class="col-xs-12 col-sm-7 col-md-6 col-lg-8 col-xl-8">
-        <div class="card-body">
-          <h4 class="card-title">{{ hero.nombre }}</h4>
-          <p class="card-text">{{ hero.bio }}</p>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item font-italic">{{ hero.aparicion }}</li>
-            <li class="list-group-item text-{{ getBSClassFromCasa(hero) }} font-weight-bold">{{ hero.casa }}</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row no-gutters p-3">
-      <button (click)="back()" type="button" class="btn btn-danger btn-block">Regresar</button>
-    </div>
+<div class="container-fluid">
+  <div class="row p-2">
+      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 mx-auto mt-2">  
+          <h2>Formulario de Heroe</h2>    
+          <hr> 
+          <form (ngSubmit)="save(f)"
+              #f="ngForm">
+      
+              <div class="form-group">
+                  <label>Firebase ID</label>
+                  <input 
+                      type="text"
+                      class="form-control"
+                      placeholder="Firebase ID"
+                      [(ngModel)]="hero.id"
+                      name="id"
+                      disabled="disabled"
+                  >
+                  <small class="form-text text-muted">
+                      Este campo es autogenerado
+                  </small>
+              </div>
+              <div class="form-group">
+                  <label>Nombre</label>
+                  <input 
+                      type="text"
+                      class="form-control"
+                      placeholder="Nombre del héroe"
+                      [(ngModel)]="hero.nombre"
+                      name="nombre"
+                      required>
+              </div>      
+              <div class="form-group">
+                  <label>Poder</label>
+                  <input 
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="hero.poder"
+                      name="poder"
+                      placeholder="Poder del héroe"
+                  >
+              </div>        
+              <div class="form-group">
+                  <label>Biografia</label>
+                  <textarea 
+                  row="3"
+                  class="form-control"
+                  [(ngModel)]="hero.bio"
+                      name="bio"
+                      placeholder="Descripcion cronologica del héroe"
+                  ></textarea>
+              </div>        
+              <div class="form-group">
+                  <label>Ruta de imagen</label>
+                  <input 
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="hero.img"
+                      name="img"
+                      placeholder="Ej.: assets/img/imagen.png"
+                  >
+              </div>   
+              <div class="form-group">
+                  <label>Aparicion</label>
+                  <input 
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="hero.aparicion"
+                      name="aparicion"
+                      placeholder="Ej.: 1987-12-01"
+                  >
+              </div>                      
+              <div class="form-group">
+                <label class="w-100">Casa</label>
+                <div class="form-check form-check-inline">
+                    <input 
+                        type="radio"
+                        class="form-check-input"
+                        [(ngModel)]="hero.casa"
+                        name="casa"
+                        id="casa1"
+                        value="DC"
+                    >
+                    <label class="form-check-label" for="casa1">
+                        DC
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input 
+                        type="radio"
+                        class="form-check-input"
+                        [(ngModel)]="hero.casa"
+                        name="casa"
+                        id="casa2"
+                        value="Marvel"
+                    >
+                    <label class="form-check-label" for="casa2">
+                        Marvel
+                    </label>
+                </div>
+              </div>                      
+              <div class="form-group">
+                  <label>Estado</label>
+                  <br>
+                  <div class="btn-group w-100">
+                      <button
+                          class="btn btn-outline-success w-50" type="button"
+                          [ngClass]="{'btn-outline-success': !hero.vivo, 'btn-success': hero.vivo}"
+                          (click)="hero.vivo = true"
+                      >
+                          <i class="fa fa-smile-wink"></i>
+                          Vivo
+                      </button>
+                      <button 
+                          class="btn w-50" 
+                          type="button"
+                          [ngClass]="{'btn-outline-danger': hero.vivo, 'btn-danger': !hero.vivo}"
+                          (click)="hero.vivo = false"
+                      >
+                          <i class="fa fa-dizzy"></i>
+                          Muerto
+                      </button>
+                  </div>
+              </div>
+              <hr>
+              <div class="form-group w-100">
+                  <div class="btn-group w-100">
+                      <button 
+                          class="btn btn-danger w-50"
+                          routerLink="/heroes"
+                      >
+                          <i class="fa fa-arrow-left"></i>
+                          Regresar
+                      </button>
+                      <button 
+                          type="submit"
+                          class="btn btn-primary w-50"
+                      >
+                          <i class="fa fa-save"></i>
+                          Guardar
+                      </button>                    
+                  </div>
+              </div>
+          </form>
+      </div> 
+  </div>
 </div>

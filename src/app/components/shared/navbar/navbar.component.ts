@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private _router:Router) { }
 
-  ngOnInit(): void { console.log("url:", this._router.url); }
+  ngOnInit(): void { }
 
   searchItem( expression:string, typeItem: string ){
     this._router.navigate( 

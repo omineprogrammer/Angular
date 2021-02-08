@@ -6,12 +6,14 @@ import { Observable } from 'rxjs'
 import { HeroDBService } from 'src/app/services/hero.service'
 import { ActivatedRoute } from '@angular/router'
 
+
+
 @Component({
-  selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  selector: 'app-hero-new',
+  templateUrl: './hero-new.component.html',
+  styleUrls: ['./hero-new.component.css']
 })
-export class HeroDetailComponent implements OnInit {
+export class HeroNewComponent implements OnInit {
   hero = new Hero()
 
   constructor(
@@ -20,16 +22,6 @@ export class HeroDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = this._route.snapshot.paramMap.get('id');
-
-    if (id !== 'new') {
-      this._heroDBServices.getHero(id).subscribe(
-        (answer: Hero) => {
-          this.hero = answer;
-          this.hero.id = id;
-        }
-      )
-    }
   }
 
   save( form: NgForm) {
@@ -61,4 +53,6 @@ export class HeroDetailComponent implements OnInit {
     } )
 
   }
+
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Heroe, HeroService } from 'src/app/services/hero.service';
+import { Hero } from 'src/app/models/hero.model';
+import { HeroDBService } from 'src/app/services/hero.service';
 import { getBSClassFromCasa } from 'src/app/tools/tools';
 
 @Component({
@@ -9,15 +10,21 @@ import { getBSClassFromCasa } from 'src/app/tools/tools';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  heroes: Heroe[] = []
+  heroes: Hero[] = []
+  loading = true
 
   constructor(
-    private _heroesService: HeroService,
+    private _heroesService: HeroDBService,
     private _router: Router
   ) { }
 
   ngOnInit(): void {
-    this.heroes = this._heroesService.getHeroes()
+    this._heroesService.getHeroes().subscribe(
+      answer => {
+        this.heroes = answer;
+        this.loading = false;
+      }
+    )
   }
 
   getHero(i: number) {

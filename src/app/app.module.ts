@@ -6,13 +6,16 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { APP_ROUTING } from './app.routes';
-import { HeroService } from "./services/hero.service";
+// import { HeroService } from "./services/hero.service";
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { VillainsComponent } from './components/villains/villains.component';
 import { VillainService } from './services/villain.service';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { HeroNewComponent } from './components/hero-new/hero-new.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,14 +27,17 @@ import { FilterPipe } from './pipes/filter.pipe';
     VillainsComponent,
     HeroDetailComponent,
     SearcherComponent,
-    FilterPipe
+    FilterPipe,
+    HeroNewComponent
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
-    HeroService,
+    // HeroService,
     VillainService
   ],
   bootstrap: [AppComponent]
